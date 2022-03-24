@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/mpetrunic/npm-automatic-release/compare/v1.0.0...v1.1.0) (2022-03-24)
+
+
+### Features
+
+* added new feature ([652fffc](https://github.com/mpetrunic/npm-automatic-release/commit/652fffc5d86f27780430e77be37c3382b221ee62))
+
 ## 1.0.0 (2022-03-24)
 
 
