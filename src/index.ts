@@ -1,3 +1,3 @@
-console.log("something smething")
+console.log("something smething!")
 
 export {}
