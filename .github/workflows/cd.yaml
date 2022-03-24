@@ -16,6 +16,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
       - run: yarn build
-      - run: yarn publish --ignore-scripts --no-git-tag-version --preid ${{ github.sha }} --tag beta
+      - run: yarn publish --ignore-scripts --no-git-tag-version --new-version ${{ github.sha }} --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }} 
