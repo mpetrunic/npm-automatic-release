@@ -14,7 +14,4 @@ jobs:
           cache: yarn
           node-version: 16
       - run: yarn install
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
+      - run: yarn publish --ignore-scripts --no-git-tag-version --preid ${{ github.sha }} --tag beta
