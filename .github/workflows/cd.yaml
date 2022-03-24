@@ -16,6 +16,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
       - run: yarn build
-      - run: yarn publish --ignore-scripts --no-git-tag-version --new-version ${{ github.ref.name }} --tag beta
+      - run: yarn publish --ignore-scripts --no-git-tag-version --new-version ${{ github.ref_name	}} --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }} 
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        commit_message: Automated release ${{ github.ref_name }}
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          
