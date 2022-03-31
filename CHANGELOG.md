@@ -5,6 +5,13 @@
 
 * added new feature ([652fffc](https://github.com/mpetrunic/npm-automatic-release/commit/652fffc5d86f27780430e77be37c3382b221ee62))
 
+## [1.3.0](https://github.com/mpetrunic/npm-automatic-release/compare/v1.2.1...v1.3.0) (2022-03-31)
+
+
+### Features
+
+* new feature ([#11](https://github.com/mpetrunic/npm-automatic-release/issues/11)) ([65f3fc9](https://github.com/mpetrunic/npm-automatic-release/commit/65f3fc9fd8c38fc6b6f72d040fe172998181872b))
+
 ### [1.2.1](https://github.com/mpetrunic/npm-automatic-release/compare/v1.2.0...v1.2.1) (2022-03-31)
 
 
