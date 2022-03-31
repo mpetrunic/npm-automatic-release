@@ -5,6 +5,13 @@
 
 * added new feature ([652fffc](https://github.com/mpetrunic/npm-automatic-release/commit/652fffc5d86f27780430e77be37c3382b221ee62))
 
+### [1.2.1](https://github.com/mpetrunic/npm-automatic-release/compare/v1.2.0...v1.2.1) (2022-03-31)
+
+
+### Bug Fixes
+
+* remove semantic release dep and ensure lib is builded before released ([#9](https://github.com/mpetrunic/npm-automatic-release/issues/9)) ([66a4705](https://github.com/mpetrunic/npm-automatic-release/commit/66a4705f13a62439417fe4dea72c71d7a15b307a))
+
 ## [1.2.0](https://github.com/mpetrunic/npm-automatic-release/compare/v1.1.0...v1.2.0) (2022-03-31)
 
 
