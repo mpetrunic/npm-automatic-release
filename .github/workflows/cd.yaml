@@ -30,6 +30,9 @@ jobs:
       
       - run: yarn install
         if: ${{ steps.release.outputs.release_created }}
+      
+      - run: yarn build
+        if: ${{ steps.release.outputs.release_created }}
 
       - run: npm publish
         env:
