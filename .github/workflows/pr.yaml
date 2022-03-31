@@ -20,5 +20,4 @@ jobs:
             fix
             feat
             chore
-          validateSingleCommit: true
-          validateSingleCommitMatchesPrTitle: true
+          validateSingleCommit: true #single commit can ovveride squash merge commit message

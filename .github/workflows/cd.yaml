@@ -1,29 +1,40 @@
 name: Release
 on:
-  create:
-    tags:
-      - '*'
+  push:
+    branches:
+      - main
 jobs:
-  release:
+  maybe-release:
     name: release
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          package-name: release-please-action
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
+      
       - uses: actions/checkout@v3
+        # these if statements ensure that a publication only occurs when
+        # a new release is created:
+        if: ${{ steps.release.outputs.release_created }}
+        
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
-          node-version: '16'
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+      
       - run: yarn install
-      - run: yarn build
-      - run: yarn publish --ignore-scripts --no-git-tag-version --new-version ${{ github.ref_name	}} --tag beta
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }} 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Automated release ${{ github.ref_name }}
-          branch: main
-      - name: Create Github Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}
+
+          
+
